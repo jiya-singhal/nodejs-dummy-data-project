@@ -1,14 +1,10 @@
 # nodejs-dummy-data-project with MongoDB
 This project demonstrates how to set up a Node.js server that retrieves dummy JSON data, stores it in MongoDB, and provides an API for accessing, filtering, and sorting the data.
-- Data is managed in MongoDB for efficient querying.
-- Filtering and sorting are handled directly by the database.
 
-# This project covers:
-
-- Fetching external data and persisting it in MongoDB
-- Creating a RESTful API using Express
-- Implementing data filtering and sorting features
-- Handling errors and validating inputs
+# Implementation Details
+- *MongoDB Integration:* Uses MongoDB for storing and retrieving data. Data is fetched from an external source and initialized in the database.
+- *Data Processing:* Filtering and sorting operations are performed in-memory after retrieving data from MongoDB.
+- *Error Logging:* Errors are logged to the console for debugging purposes.
 
 # To run this project, we'll need:
 
@@ -17,20 +13,18 @@ This project demonstrates how to set up a Node.js server that retrieves dummy JS
 - MongoDB (version 4.0 or above)
 
 # Instructions to Setup
-Clone the repository:
+- 1. Clone the repository:
 ```bash
-   git https://github.com/jiya-singhal/nodejs-dummy-data-project.git
+   git clone https://github.com/jiya-singhal/nodejs-dummy-data-project.git
    cd nodejs-dummy-data-project
 ```
-Create a `.env` file:
+- 2. Create a `.env` file:
 In the root directory, create a .env file and add the following environment variables:
 - DATA_URL=<insert_data_source_url_here>
 - PORT=3000
 - MONGO_URI=<your_mongodb_connection_string>
 
-# Install dependencies:
-
-Run the following command to install the necessary packages:
+- 3. Install dependencies:
 
 1. dotenv - For managing environment variables:
 ```bash
@@ -44,13 +38,13 @@ npm install axios
 ```bash
 npm install mongodb
 ``` 
-# Initialize the database:
+- 4. Initialize the database:
 Run the script to fetch and store the initial data in MongoDB:
 
 ```bash
 node initialize.js
 ``` 
-# Start the server:
+- 5. Start the server:
 ```bash
 node server.js
 ```
@@ -67,24 +61,51 @@ The server will be available at http://localhost:3000
 
 
 # API Endpoints
+- 1. Retrieve All Data
 
- *Get All Data:*
-``` http://localhost:3000/api/data ``` 
+*Function:* getData
+*Endpoint:* GET /api/data
+*Description:* Retrieves all records from the database. No query parameters are required.
 
- *Filter Data:*
-Format: key:value,key2:value2
-``` http://localhost:3000/api/data?filter=key:value ```
-Filtering is case-insensitive and supports partial matches
+- 2. Filter Data
 
- *Sort Data:*
-Format: field:order
-``` http://localhost:3000/api/data?sort=field:order ```
- Ascending-  'asc'
- Descending- 'desc' 
+*Function:* filterData
+*Endpoint:* GET /api/data?filter=key:value[,key:value]
+*Description:* Filters data based on the provided key-value pairs. Multiple filters can be applied, separated by commas.
+Example: GET /api/data?filter=language:Sindhi
 
- *Filter and Sort Data:*
-``` http://localhost:3000/api/data?filter=key:value&sort=field:order ```
+- 3. Sort Data
 
+*Function:* sortData
+*Endpoint:* GET /api/data?sort=key:order
+*Description:* Sorts data by the specified field (key) and order (asc or desc).
+Example: GET /api/data?sort=version:asc
+
+- 4. Filter and Sort Data
+
+*Function:* Combination of filterData and sortData
+*Endpoint:* GET /api/data?filter=key:value[,key:value]&sort=key:order
+*Description:* Applies both filtering and sorting to the data.
+Example: GET /api/data?filter=language:Hindi&sort=id:desc
+
+
+# Error Handling
+
+- 1. Unrecognized Query Parameters:
+*Description:* Handles cases where query parameters are not recognized.
+*Response:* { "error": "Invalid query parameter", "message": "The following query parameter(s) are not recognized: <param>" }
+
+- 2. Invalid Filter Format:
+*Description:* Handles invalid filter formats.
+*Response:* { "error": "Filter error", "message": "Filter error: Invalid filter format: <filter>" }
+
+- 3. No Matching Items:
+*Description:* Handles cases where no items match the filter.
+*Response:* { "error": "Filter error", "message": "Filter error: No items match this filter: <filter>" }
+
+- 4. Invalid Sort Format:
+*Description:* Handles invalid sort formats.
+*Response:* { "error": "Sort error", "message": "Sort error: Invalid sort format. Expected 'field:asc' or 'field:desc', got '<sort>'" }
 
 # Postman Collection
  
@@ -115,7 +136,7 @@ Format: field:order
     * *output* ![Sort data](PostmanImages/AscSort.png)
 
 ### Filter and sort
-*Description:* Retrieves records where the language is Uyghur and sorts them by ID in descending order.
+**Description:** Retrieves records where the language is Uyghur and sorts them by ID in descending order.
 
 - *url* : `http://localhost:3000/api/data?filter=language:Uyghur&sort=id:desc`
 

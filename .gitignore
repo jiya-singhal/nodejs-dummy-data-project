@@ -1,0 +1,11 @@
+# Node.js dependencies
+node_modules/
+
+
+# Environment files
+.env
+
+# npm package-lock files
+package-lock.json
+
+

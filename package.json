@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-dummy-json-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "initialize": "node initialize.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "This project sets up a Node.js server that fetches dummy JSON data, stores it in MongoDB, and provides an API to access, filter, and sort this data",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

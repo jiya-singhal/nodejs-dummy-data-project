@@ -58,7 +58,7 @@ The server will be available at http://localhost:3000
 
 ## Structure of Project
 
-- app.js: Initializes the Express application.
+- server.js: Initializes the Express application.
 - initialize.js: Fetches and inserts initial data into the database.
 - routes/dataRoute.js: Defines the API endpoints.
 - controllers/dataController.js: Contains the business logic for data handling.
@@ -66,15 +66,12 @@ The server will be available at http://localhost:3000
 - utils/dataUtils.js: Utility functions for processing data.
 
 
-# Initial Data Setup
-Before running the server, initialize the database : `node initialize.js`
-
 # API Endpoints
 
  *Get All Data:*
 ``` http://localhost:3000/api/data ``` 
 
- *Filter Data: *
+ *Filter Data:*
 Format: key:value,key2:value2
 ``` http://localhost:3000/api/data?filter=key:value ```
 Filtering is case-insensitive and supports partial matches
@@ -96,11 +93,10 @@ Format: field:order
 - Launch Postman and create a new request.
 - Set the request type to GET.
 - Enter the appropriate URL (e.g., http://localhost:3000/api/data).
-- Add query parameters as needed (e.g., filter, sort).
+- Add query parameters as needed.
 - Click Send to execute the request and view the response.
 
 ### Retrieve All Data
-
 
 - *url* : `http://localhost:3000/api/data`
 *Description*: Fetches all records from the database.

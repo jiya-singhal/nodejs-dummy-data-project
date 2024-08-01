@@ -97,15 +97,15 @@ The server will be available at http://localhost:3000
 
  2. Invalid Filter Format:
 - *Description:* Handles invalid filter formats.
-- *Response:* { "error": "Filter error", "message": "Filter error: Invalid filter format: <filter>" }
+- *Response:* { "error": "Filter application error", "message": "Filter error: Invalid filter format: <filter>" }
 
  3. No Matching Items:
 - *Description:* Handles cases where no items match the filter.
-- *Response:* { "error": "Filter error", "message": "Filter error: No items match this filter: <filter>" }
+- *Response:* { "error": "Filter application error", "message": "Filter error: No items match this filter: <filter>" }
 
  4. Invalid Sort Format:
 - *Description:* Handles invalid sort formats.
-- *Response:* { "error": "Sort error", "message": "Sort error: Invalid sort format. Expected 'field:asc' or 'field:desc', got '<sort>'" }
+- *Response:* { "error": "Sort application error", "message": "Sort error: Invalid sort format. Expected 'field:asc' or 'field:desc', got '<sort>'" }
 
 # Postman Collection
  

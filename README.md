@@ -20,9 +20,9 @@ This project demonstrates how to set up a Node.js server that retrieves dummy JS
 ```
 - 2. Create a `.env` file:
 In the root directory, create a .env file and add the following environment variables:
-- DATA_URL=<insert_data_source_url_here>
-- PORT=3000
-- MONGO_URI=<your_mongodb_connection_string>
+ DATA_URL=<insert_data_source_url_here>
+ PORT=3000
+ MONGO_URI=<your_mongodb_connection_string>
 
 - 3. Install dependencies:
 

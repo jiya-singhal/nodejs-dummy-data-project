@@ -61,51 +61,51 @@ The server will be available at http://localhost:3000
 
 
 # API Endpoints
-- 1. Retrieve All Data
+ 1. Retrieve All Data
 
-*Function:* getData
-*Endpoint:* GET /api/data
-*Description:* Retrieves all records from the database. No query parameters are required.
+- *Function:* getData
+- *Endpoint:* GET /api/data
+- *Description:* Retrieves all records from the database. No query parameters are required.
 
-- 2. Filter Data
+ 2. Filter Data
 
-*Function:* filterData
-*Endpoint:* GET /api/data?filter=key:value[,key:value]
-*Description:* Filters data based on the provided key-value pairs. Multiple filters can be applied, separated by commas.
-Example: GET /api/data?filter=language:Sindhi
+- *Function:* filterData
+- *Endpoint:* GET /api/data?filter=key:value[,key:value]
+- *Description:* Filters data based on the provided key-value pairs. Multiple filters can be applied, separated by commas.
+- Example: GET /api/data?filter=language:Sindhi
 
-- 3. Sort Data
+ 3. Sort Data
 
-*Function:* sortData
-*Endpoint:* GET /api/data?sort=key:order
-*Description:* Sorts data by the specified field (key) and order (asc or desc).
-Example: GET /api/data?sort=version:asc
+- *Function:* sortData
+- *Endpoint:* GET /api/data?sort=key:order
+- *Description:* Sorts data by the specified field (key) and order (asc or desc).
+- Example: GET /api/data?sort=version:asc
 
-- 4. Filter and Sort Data
+ 4. Filter and Sort Data
 
-*Function:* Combination of filterData and sortData
-*Endpoint:* GET /api/data?filter=key:value[,key:value]&sort=key:order
-*Description:* Applies both filtering and sorting to the data.
-Example: GET /api/data?filter=language:Hindi&sort=id:desc
+- *Function:* Combination of filterData and sortData
+- *Endpoint:* GET /api/data?filter=key:value[,key:value]&sort=key:order
+- *Description:* Applies both filtering and sorting to the data.
+- Example: GET /api/data?filter=language:Hindi&sort=id:desc
 
 
 # Error Handling
 
-- 1. Unrecognized Query Parameters:
-*Description:* Handles cases where query parameters are not recognized.
-*Response:* { "error": "Invalid query parameter", "message": "The following query parameter(s) are not recognized: <param>" }
+ 1. Unrecognized Query Parameters:
+- *Description:* Handles cases where query parameters are not recognized.
+- *Response:* { "error": "Invalid query parameter", "message": "The following query parameter(s) are not recognized: <param>" }
 
-- 2. Invalid Filter Format:
-*Description:* Handles invalid filter formats.
-*Response:* { "error": "Filter error", "message": "Filter error: Invalid filter format: <filter>" }
+ 2. Invalid Filter Format:
+- *Description:* Handles invalid filter formats.
+- *Response:* { "error": "Filter error", "message": "Filter error: Invalid filter format: <filter>" }
 
-- 3. No Matching Items:
-*Description:* Handles cases where no items match the filter.
-*Response:* { "error": "Filter error", "message": "Filter error: No items match this filter: <filter>" }
+ 3. No Matching Items:
+- *Description:* Handles cases where no items match the filter.
+- *Response:* { "error": "Filter error", "message": "Filter error: No items match this filter: <filter>" }
 
-- 4. Invalid Sort Format:
-*Description:* Handles invalid sort formats.
-*Response:* { "error": "Sort error", "message": "Sort error: Invalid sort format. Expected 'field:asc' or 'field:desc', got '<sort>'" }
+ 4. Invalid Sort Format:
+- *Description:* Handles invalid sort formats.
+- *Response:* { "error": "Sort error", "message": "Sort error: Invalid sort format. Expected 'field:asc' or 'field:desc', got '<sort>'" }
 
 # Postman Collection
  
@@ -120,23 +120,23 @@ Example: GET /api/data?filter=language:Hindi&sort=id:desc
 ### Retrieve All Data
 
 - *url* : `http://localhost:3000/api/data`
-*Description*: Fetches all records from the database.
+- *Description*: Fetches all records from the database.
 
    * *output*![Retrieve All Data](PostmanImages/getData.png)
 
 ### Filter data according to the format requested
 - *url* :  `http://localhost:3000/api/data?filter=language:Sindhi` 
-*Description*: Retrieves records where the language is Sindhi.
+- *Description*: Retrieves records where the language is Sindhi.
    * *output*![Filter data](PostmanImages/languageFilter.png)
 
 ### Sort data according to the format requested
-*Description*: Sorts the records by the version in ascending order.
+- *Description*: Sorts the records by the version in ascending order.
 - *url* : `http://localhost:3000/api/data?sort=version:asc`
   
     * *output* ![Sort data](PostmanImages/AscSort.png)
 
 ### Filter and sort
-**Description:** Retrieves records where the language is Uyghur and sorts them by ID in descending order.
+- *Description:* Retrieves records where the language is Uyghur and sorts them by ID in descending order.
 
 - *url* : `http://localhost:3000/api/data?filter=language:Uyghur&sort=id:desc`
 

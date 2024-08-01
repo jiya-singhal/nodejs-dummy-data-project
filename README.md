@@ -10,7 +10,7 @@ This project demonstrates how to set up a Node.js server that retrieves dummy JS
 - Implementing data filtering and sorting features
 - Handling errors and validating inputs
 
-# To run this project, you'll need:
+# To run this project, we'll need:
 
 - Node.js (version 12.0.0 or above)
 - npm (version 6.0.0 or above)
@@ -89,58 +89,6 @@ Format: field:order
 ``` http://localhost:3000/api/data?filter=key:value&sort=field:order ```
 
 
-# Error Handling
-The API handles errors for various scenarios:
-
-- 1. Invalid Filter Format
-
-* URL: `http://localhost:3000/api/data?filter=language`
-* Response:
-```json
-
-{
-    "error": "Filter error",
-    "message": "Filter error: Invalid filter format: language"
-}
-```
-- 2. Unknown Query Parameters
-
-* URL: `http://localhost:3000/api/data?sorted`
-* Response:
-```json
-
-{
-    "error": "Invalid query parameter",
-    "message": "The following query parameter(s) are not recognized: sorted"
-}
-```
-
-- 3. Incorrect Sort Format
-
-* URL: `http://localhost:3000/api/data?sort=version:decs`
-* Response:
-```json
-
-{
-    "error": "Sorting error",
-    "message": "Sorting error: An invalid sort format!, received 'version:decs'"
-}
-```
-
-
-- 4. No Data Matching the Filter
-
-* URL: `http://localhost:3000/api/data?filter=language=hinfi`
-* Response:
-```json
-
-{
-    "error": "Filter error",
-    "message": "Filter error: No items match this filter: language=hinfi"
-}
-```
-
-
 # Postman Collection
  
  ### Testing the API with Postman
@@ -178,15 +126,15 @@ The API handles errors for various scenarios:
     * *output* ![Filter and sort](PostmanImages/filter&Sort.png)
 
 
-## Errors
+# Errors
 
 - *Unknown query parameters*
   - *URL*: `http://localhost:3000/api/data?unknownParam=test`
   - *Response*: ![The following query parameter(s) are not recognized: sorted](PostmanImages/InvalidQuery.png)
 
 - *Invalid sort format*
-  - *URL*: `http://localhost:3000/api/data?sort=version:decs`
-  - *Response*: ![Sorting error: An invalid sort format!, received 'version:decs'](PostmanImages/SortFormatError.png)
+  - *URL*: `http://localhost:3000/api/data?sort=version:asec`
+  - *Response*: ![Sorting error: An invalid sort format!, received 'version:asec'](PostmanImages/SortFormatError.png)
 
 - *No matching items*
   - *URL*: `http://localhost:3000/api/data?filter=language=English`

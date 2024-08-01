@@ -13,38 +13,38 @@ This project demonstrates how to set up a Node.js server that retrieves dummy JS
 - MongoDB (version 4.0 or above)
 
 # Instructions to Setup
-- 1. Clone the repository:
+ 1. Clone the repository:
 ```bash
    git clone https://github.com/jiya-singhal/nodejs-dummy-data-project.git
    cd nodejs-dummy-data-project
 ```
-- 2. Create a `.env` file:
+ 2. Create a `.env` file:
 In the root directory, create a .env file and add the following environment variables:
- DATA_URL=<insert_data_source_url_here>
- PORT=3000
- MONGO_URI=<your_mongodb_connection_string>
+ - DATA_URL=<insert_data_source_url_here>
+ - PORT=3000
+ - MONGO_URI=<your_mongodb_connection_string>
 
-- 3. Install dependencies:
+ 3. Install dependencies:
 
-1. dotenv - For managing environment variables:
+- dotenv - For managing environment variables:
 ```bash
 npm install dotenv
 ``` 
-2. axios - For making HTTP requests:
+- axios - For making HTTP requests:
 ```bash
 npm install axios
 ``` 
-3. mongodb - For interacting with MongoDB:
+- mongodb - For interacting with MongoDB:
 ```bash
 npm install mongodb
 ``` 
-- 4. Initialize the database:
+ 4. Initialize the database:
 Run the script to fetch and store the initial data in MongoDB:
 
 ```bash
 node initialize.js
 ``` 
-- 5. Start the server:
+ 5. Start the server:
 ```bash
 node server.js
 ```

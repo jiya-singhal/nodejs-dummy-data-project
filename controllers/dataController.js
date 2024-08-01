@@ -11,8 +11,8 @@ exports.getData = async (req, res) => {
         if (Object.keys(otherParams).length > 0) {
             const unrecognizedParams = Object.keys(otherParams).join(', ');
             return res.status(400).json({
-                error: 'Unrecognized query parameter',
-                message: `It is an unrecognized query parameter: ${unrecognizedParams}`
+                error: 'Invalid query parameter',
+                message: `The following query parameter(s) are not recognized: ${unrecognizedParams}`
             });
         }
 
@@ -20,7 +20,7 @@ exports.getData = async (req, res) => {
             try {
                 data = filterData(data, filter);
             } catch (error) {
-                return res.status(400).json({ error: 'Filter error', message: error.message });
+                return res.status(400).json({ error: 'Filter application error', message: error.message });
             }
         }
 
@@ -28,13 +28,13 @@ exports.getData = async (req, res) => {
             try {
                 data = sortData(data, sort);
             } catch (error) {
-                return res.status(400).json({ error: 'Sort error', message: error.message });
+                return res.status(400).json({ error: 'Sorting application error', message: error.message });
             }
         }
 
         res.json(data);
     } catch (error) {
-        console.error('Error in getData:', error);
-        res.status(500).json({ error: 'Internal server error', message: error.message });
+        console.error('Error while fetching data:', error);
+        res.status(500).json({ error: 'Server error', message: 'An issue occurred while processing your request' });
     }
 };

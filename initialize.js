@@ -9,28 +9,28 @@ async function initialize() {
     let client;
     try {
         if (!DATA_URL || !MONGO_URI) {
-            throw new Error('Missing required environment variables');
+            throw new Error('Environment variables are missing');
         }
 
         client = new MongoClient(MONGO_URI);
         await client.connect();
-        console.log('Connected to MongoDB');
+        console.log('Successfully connected to MongoDB');
 
         const db = client.db('dataAPI');
         const collection = db.collection('data');
 
         const count = await collection.countDocuments();
         if (count > 0) {
-            console.log('Clearing existing data in the collection...');
+            console.log('Removing existing documents from the collection...');
             await collection.deleteMany({});
         }
 
-        console.log('Fetching data from the server...');
+        console.log('Retrieving data from external source...');
         const { data: dummyData } = await axios.get(DATA_URL);
         await collection.insertMany(dummyData);
-        console.log('Data fetched and stored successfully in MongoDB');
+        console.log('Data successfully retrieved and inserted into MongoDB');
     } catch (error) {
-        console.error('Error initializing data:', error.message);
+        console.error('Error during data initialization:', error.message);
         process.exit(1);
     } finally {
         if (client) {

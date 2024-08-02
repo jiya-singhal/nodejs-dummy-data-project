@@ -170,7 +170,7 @@ To test and interact with the API, you can use the provided Postman collection. 
 ### How to Import the Collection
 
 1. **Download the Collection**:
-   - [Download the Postman Collection](/home/jiya/nodejs-dummy-data-project/PostmanCollection.json) 
+   - [Download the Postman Collection](PostmanCollection.json) 
 
 2. **Open Postman**:
    - Launch Postman on your computer.

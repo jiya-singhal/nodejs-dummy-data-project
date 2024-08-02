@@ -160,3 +160,40 @@ The server will be available at http://localhost:3000
 - *Invalid filter format*
   - *URL*: `http://localhost:3000/api/data?filter=language`
   - *Response*: ![Filter error: Invalid filter format: language](PostmanImages/FilterFormatError.png)
+
+### PostMan Collection Exported
+## API Documentation
+## Postman Collection
+
+To test and interact with the API, you can use the provided Postman collection. It includes example requests and responses for the API endpoints.
+
+### How to Import the Collection
+
+1. **Download the Collection**:
+   - [Download the Postman Collection](/home/jiya/nodejs-dummy-data-project/PostmanCollection.json) 
+
+2. **Open Postman**:
+   - Launch Postman on your computer.
+
+3. **Import the Collection**:
+   - Click on the "Import" button in Postman.
+   - Choose the downloaded JSON file or paste the link to the file.
+   - Click "Import" to add the collection to your workspace.
+
+4. **Explore the Requests**:
+   - Once imported, you can explore the requests and responses included in the collection.
+   - Run requests to test the API endpoints and view example responses.
+
+### Example Requests
+
+Here are some example requests included in the collection:
+
+- **Get All Data**: Fetches all data from the API.
+  - **Endpoint**: `GET /api/data`
+  - **Response**: Contains a list of data with various attributes.
+
+For more details on each request, refer to the imported collection in Postman.
+
+### API Documentation
+
+For more information on the API endpoints and how to use them, refer to the [API Documentation](https://web.postman.co/workspace/ac75c8ed-0ed8-47b9-8e78-f5309a33b451/documentation/36707641-990b1293-576a-420b-9173-c840ac311b9c).
